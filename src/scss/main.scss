@@ -5,7 +5,222 @@
 
 /* CUSTOM SASS ===================== */
 
+/* JavaScript Warning */
 
+.noJavaScript {
+	background: $warning;
+	color: #fff;
+	padding: 1em;
+	text-align: center;
+	.warning {
+		text-transform: uppercase;
+	}
+}
+
+/* end JavaScript Warning */
+
+/* main styles */
+html {
+	-webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing:antialiased;
+}
+html, body {
+	height: 100%;
+	min-height: 100%;
+}
+.wrapper {
+	height: 100%;
+	margin: 0 auto;
+	max-width: 450px;
+	position: relative;
+	.headerHolder {
+		height: 0;
+		padding-top: 100%;
+		position: relative;
+		top: 0;
+	}
+}
+h1 {
+	background: url(../img/magic-spambot-preventing-email-link-generator.jpg) no-repeat top center;
+	-webkit-background-size: cover;
+	background-size: cover;
+	height: 0;
+	margin: 0;
+	padding-top: 100%;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+}
+.formHolder {
+	background: #898989;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzg5ODk4OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1OTU5NTkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top, #898989 0%, #595959 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#898989), color-stop(100%,#595959));
+	background: -webkit-linear-gradient(top, #898989 0%,#595959 100%);
+	background: -o-linear-gradient(top, #898989 0%,#595959 100%);
+	background: -ms-linear-gradient(top, #898989 0%,#595959 100%);
+	background: linear-gradient(to bottom, #898989 0%,#595959 100%);
+	font-family: $serif;
+	border: 1px solid #595959;
+	@include bRadius(6px);
+	padding: 20px 10px;
+	position: relative;
+	.lt-ie9 & {
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#898989', endColorstr='#595959',GradientType=0 );
+	}
+	label, .customDiv {
+		color: #fff;
+		display: block;
+		font-size: 1.2em;
+		margin: 0 0.5%;
+		text-align: center;
+		text-shadow: 1px 1px 0 rgba(0,0,0, 0.2);
+	}
+	.customDiv {
+		margin-top: 1.2em;
+		text-align: right;
+		.divCheck {
+			background: #fff;
+			@include bRadius(4px);
+			cursor: pointer;
+			display: inline-block;
+			height: 20px;
+			margin-left: 8px;
+			width: 20px;
+			vertical-align: -2px;
+		}
+	}
+	.textField {
+		padding-top: 20px;
+	}
+	.input {
+		border: 0;
+		@include bRadius(6px);
+		display: block;
+		font-family: $serif;
+		letter-spacing: 0.5px;
+		margin: 5px auto;
+		outline: 0;
+		padding: 2%;
+		@include trans(all, 0.5s);
+		width: 95%;
+		&:focus {
+			background: $selectHighlight;
+			@include trans(all, 0.5s);
+		}
+	}
+	.divCheck, .input {
+			@include iBxSh(1px, 2px, 4px, rgba(0,0,0, 0.2));
+		}
+	.submitButton {
+		background: #bf46eb;
+		background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2JmNDZlYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5NDMxYjkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+		background: -moz-linear-gradient(top, #bf46eb 0%, #9431b9 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bf46eb), color-stop(100%,#9431b9));
+		background: -webkit-linear-gradient(top, #bf46eb 0%,#9431b9 100%);
+		background: -o-linear-gradient(top, #bf46eb 0%,#9431b9 100%);
+		background: -ms-linear-gradient(top, #bf46eb 0%,#9431b9 100%);
+		background: linear-gradient(to bottom, #bf46eb 0%,#9431b9 100%);
+		border: solid 1px #9431b9;
+		@include bRadius(4px);
+		color: #fff;
+		display: block;
+		font-family: $serif;
+		font-size: 1.4em;
+		letter-spacing: 0.5px;
+		margin: 20px auto 0;
+		outline: none;
+		padding: 10px 20px;
+		text-shadow: 1px 1px 0 rgba(0,0,0, 0.2);
+		text-transform: uppercase;
+		@include trans(all, 0.2s);
+		&:hover {
+			-moz-transform: scale(1.1);
+			-webkit-transform: scale(1.1);
+			transform: scale(1.1);
+		}
+		.lt-ie9 & {
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf46eb', endColorstr='#9431b9',GradientType=0 );
+		}
+	}
+	.mute {
+		color: $mute;
+	}
+	.theX {
+		height: 32px;
+		margin: -9px 0 0 -6px;
+		width: 32px;
+	}
+	.errorBox {
+		background: $selectHighlight;
+		@include bRadius(6px);
+		@include bxSh(3px, 3px, 3px, rgba(0,0,0, 0.3));
+		color: #404040;
+		display: none;
+		left: 13px;
+		padding: 30px 20px;
+		position: absolute;
+		top: 105px;
+		p {
+			margin: 0;
+		}
+		.pointer {
+			border: solid 15px transparent;
+			border-bottom: solid 20px $selectHighlight;
+			display: block;
+			left: 10px;
+			height: 1px;
+			position: absolute;
+			left: 15px;
+			top: -35px;
+			width: 1px;
+		}
+	}
+}
+.mask {
+	background: rgba(0,0,0, 0.7);
+	bottom: 0;
+	display: none;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+	.output {
+		background: #fff;
+		@include bRadius(6px);
+		@include bxSh(3px, 3px, 3px, rgba(0,0,0, 0.4));
+		max-width: 440px;
+		margin: 10% auto;
+		padding: 10px 5px 5px;
+	}
+	h2 {
+		color: #404040;
+		font-family: $serif;
+		font-size: 1.2em;
+		margin: 0;
+		text-align: center;
+		text-shadow: 1px 1px 0 rgba(0,0,0, 0.2);
+	}
+	.theCode {
+		border: 1px solid #bbb;
+		@include bRadius(6px);
+		@include iBxSh(1px, 3px, 2px, rgba(0,0,0, 0.15));
+		color: #404040;
+		display: block;
+		font-family: 'Courier New', Courier, monospace;
+		height: auto;
+		margin: 10px auto 0;
+		outline: none;
+		padding: 5%;
+		resize: vertical;
+		width: 89%;
+	}
+}
+
+/* main styles */
 
 /* ================================= */
 
