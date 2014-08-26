@@ -90,9 +90,9 @@ function hideErrors() {
 
 function validate(str) {
 	if(str === inputEmail$.prop('defaultValue')) {
-		errorEmpty$.fadeIn(200);
+		errorEmpty$.stop().fadeIn(200);
 	} else if(!emailRegex.test(str)) {
-		errorBad$.fadeIn(200);
+		errorBad$.stop().fadeIn(200);
 	} else {
 		makeCode(str);
 	}
@@ -240,7 +240,7 @@ errorEmpty$.click(function() {
 errorBad$.click(function() {
 	hideErrors();
 });
-submitButton$.click(function(e) {
+submitButton$.stop().click(function(e) {
 	e.preventDefault();
 	hideErrors();
 	validate(inputEmail$.val());
