@@ -35,9 +35,14 @@ html, body {
 	position: relative;
 	.headerHolder {
 		height: 0;
+		margin: 0 auto;
 		padding-top: 100%;
 		position: relative;
 		top: 0;
+		@media only screen and (max-width: 449px) {
+			padding-top: 80%;
+			width: 80%;
+		}
 	}
 }
 h1 {
