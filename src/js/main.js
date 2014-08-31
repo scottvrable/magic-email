@@ -33,8 +33,8 @@ var isDivChecked       = false,
     reg3               = /</g,
     reg4               = />/g;
 
-// array variables
-var letters            = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+// array variables, generates via generateLetterArray function below
+var letters            = generateLetterArray();
 
 // object variables
 var strObj = {
@@ -85,6 +85,19 @@ function animateLogo() {
 			formHolder$.fadeIn(500);
 		});
 	});
+}
+
+//set up letters array, generates letters A through z, called by var letters
+function generateLetterArray() {
+  var array = [];
+  for(var start = 65, end = 123; start < end; start++) {
+   if(start >= 91 && start <= 96) {
+      continue;
+    } else {
+      array.push(String.fromCharCode(start));
+    }
+  }
+  return array;
 }
 
 // ========================= end setting up page //
