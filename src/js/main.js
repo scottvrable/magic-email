@@ -21,24 +21,25 @@ var heading$           = $('h1'),
     mask$              = $('#mask'),
     output$            = $('#output'),
     theCode$           = $('#theCode'),
-    theX$              = $(preloadImage('img/check-x.png'));
+    theX$              = $(preloadImage('img/check-x.png')),
 
-// regular JavaScript variables
-var isDivChecked       = false,
+// normal JavaScript variables
+    isDivChecked       = false,
     outputString       = '',
-    // email validation regular expression
+
+// regular expression variables
     emailRegex         = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     // regular expressions to clean HTML for output
     reg1               = /'/g,
     reg2               = /"/g,
     reg3               = /</g,
-    reg4               = />/g;
+    reg4               = />/g,
 
 // array variables, generates via generateLetterArray function below
-var letters            = generateLetterArray();
+    letters            = generateLetterArray(),
 
 // object variables
-var strObj = {
+    strObj = {
 	originalEmail: null,
 	safeText: null,
 	customText: null,
