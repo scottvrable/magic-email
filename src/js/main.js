@@ -25,6 +25,7 @@ var heading$           = $('h1'),
 
 // regular JavaScript variables
 var isDivChecked       = false,
+    outputString       = '',
     // email validation regular expression
     emailRegex         = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     // regular expressions to clean HTML for output
@@ -239,7 +240,7 @@ function showOutput(outputString) {
 // ========================= piecing string together // 
 
 function pieceTogether() {
-	var outputString = '';
+	outputString =  '';
 	outputString += '<span id="';
 	outputString += strObj.dateID;
 	outputString += '" class="magicEmail">';
