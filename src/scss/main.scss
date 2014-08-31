@@ -96,6 +96,11 @@ h1 {
 			margin-left: 8px;
 			width: 20px;
 			vertical-align: -2px;
+			.touch & {
+				height: 44px;
+				vertical-align: middle;
+				width: 44px;
+			}
 		}
 	}
 	.textField {
@@ -112,14 +117,18 @@ h1 {
 		padding: 2%;
 		@include trans(all, 0.5s);
 		width: 95%;
+		.touch & {
+			min-height: 34px;
+			vertical-align: middle;
+		}
 		&:focus {
 			background: $selectHighlight;
 			@include trans(all, 0.5s);
 		}
 	}
 	.divCheck, .input {
-			@include iBxSh(1px, 2px, 4px, rgba(0,0,0, 0.2));
-		}
+		@include iBxSh(1px, 2px, 4px, rgba(0,0,0, 0.2));
+	}
 	.submitButton {
 		background: #bf46eb;
 		background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2JmNDZlYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5NDMxYjkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
@@ -155,9 +164,13 @@ h1 {
 		color: $mute;
 	}
 	.theX {
-		height: 32px;
-		margin: -9px 0 0 -6px;
+		height: auto;
+		margin: -12px 0 0 -6px;
 		width: 32px;
+		.touch & {
+			 margin: -3px 0 0 -3px;
+				width: 50px;
+			}
 	}
 	.errorBox {
 		background: $selectHighlight;
