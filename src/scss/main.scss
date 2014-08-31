@@ -63,9 +63,11 @@ h1 {
 	background: linear-gradient(to bottom, #898989 0%,#595959 100%);
 	font-family: $serif;
 	border: 1px solid #595959;
-	@include bRadius(6px);
 	padding: 20px 10px;
 	position: relative;
+	@media only screen and (min-width: 450px) {
+		@include bRadius(6px);
+	}
 	.lt-ie9 & {
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#898989', endColorstr='#595959',GradientType=0 );
 	}
