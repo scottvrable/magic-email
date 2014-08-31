@@ -216,7 +216,7 @@ h1 {
 		@include bRadius(6px);
 		@include bxSh(3px, 3px, 3px, rgba(0,0,0, 0.4));
 		max-width: 440px;
-		margin: 10% auto;
+		margin: 2% auto;
 		padding: 10px 5px 5px;
 		.touch & {
 			width: 90%;
@@ -237,6 +237,7 @@ h1 {
 		color: #404040;
 		display: block;
 		font-family: 'Courier New', Courier, monospace;
+		font-size: 0.8em;
 		height: auto;
 		margin: 10px auto 0;
 		outline: none;
