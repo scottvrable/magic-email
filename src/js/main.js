@@ -148,7 +148,7 @@ function validate(str) {
 
 // clear validation
 function hideErrors() {
-	$('.errorBox').stop().fadeOut(200);
+	errorBoxes$.stop().fadeOut(200);
 }
 
 // ========================= end validation // 
