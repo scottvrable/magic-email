@@ -203,11 +203,14 @@ h1 {
 	bottom: 0;
 	display: none;
 	left: 0;
-	position: absolute;
+	position: fixed;
 	right: 0;
 	top: 0;
 	width: 100%;
 	z-index: 1000;
+	.touch & {
+		position: absolute;
+	}
 	.output {
 		background: #fff;
 		@include bRadius(6px);
@@ -215,6 +218,9 @@ h1 {
 		max-width: 440px;
 		margin: 10% auto;
 		padding: 10px 5px 5px;
+		.touch & {
+			width: 90%;
+		}
 	}
 	h2 {
 		color: #404040;
@@ -237,6 +243,11 @@ h1 {
 		padding: 5%;
 		resize: vertical;
 		width: 89%;
+		.touch & {
+			font-size: 0.8em;
+			padding: 2%;
+			width: 70%;
+		}
 	}
 }
 
