@@ -157,15 +157,8 @@ function hideErrors() {
 
 
 function makeCode(str) {
-	var theText;
 	assignEmail(str);
-	if(isDivChecked === true && inputText$.val() !== inputText$.prop('defaultValue')) {
-		theText = inputText$.val();
-		theText = theText.replace(reg1, '&#39;').replace(reg2, '&#34;').replace(reg3, '&#60;').replace(reg4, '&#62;');
-		strObj.customText = theText;
-	} else {
-		strObj.customText = '';
-	}
+	assignCustomText();
 	makeSafeText();
 	showOutput(pieceTogether());
 }
