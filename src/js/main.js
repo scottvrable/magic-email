@@ -49,7 +49,8 @@ var heading$           = $('h1'),
 	choppedArray: null,
 	jumbleArray: null,
 	dateID: null,
-	outputString: null
+	outputString: null,
+	spanTag: null
 };
 
 // ========================= finish grabbing variables //
@@ -163,6 +164,7 @@ function makeCode(str) {
 	assignSafeText();
 	assignCustomText();
 	assignDateID();
+	assignSpanTag();
 	showOutput(pieceTogether());
 }
 
@@ -197,6 +199,24 @@ function assignCustomText() {
 function assignDateID() {
 	// create a unique ID for span based on random letter and time
 	strObj.dateID = letters[Math.floor(Math.random() * letters.length)] + new Date().getTime();
+}
+
+function assignSpanTag() {
+	// create span tag that contains unique ID, class and non-JS version of email
+	var theString = '';
+	theString += '<span id="';
+	theString += strObj.dateID;
+	theString += '" class="magicEmail">';
+	if(strObj.customText !== '') {
+		// if custom text specified, put parens around non-JS safe email
+		theString += strObj.customText + ' (' + strObj.safeText + ')';
+	} else {
+		// if no custom text specified, just put in non-JS safe email
+		theString += strObj.safeText;
+	}
+	theString += '</span>';
+	// assign span tag string to strObj
+	strObj.spanTag = theString;
 }
 
 function howManyPieces() {
@@ -255,16 +275,7 @@ function showOutput(outputString) {
 // ========================= piecing string together // 
 
 function pieceTogether() {
-	strObj.outputString =  '';
-	strObj.outputString += '<span id="';
-	strObj.outputString += strObj.dateID;
-	strObj.outputString += '" class="magicEmail">';
-	if(strObj.customText !== '') {
-		strObj.outputString += strObj.customText + ' (' + strObj.safeText + ')';
-	} else {
-		strObj.outputString += strObj.safeText;
-	}
-	strObj.outputString += '</span>';
+	strObj.outputString =  strObj.spanTag;
 	strObj.outputString += '<script type="text/javascript">';
 	strObj.outputString += '(function(){';
 	strObj.outputString += 'var ';
