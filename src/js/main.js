@@ -161,7 +161,7 @@ function hideErrors() {
 function makeCode(str) {
 	assignEmail(str);
 	assignCustomText();
-	makeSafeText();
+	assignSafeText();
 	showOutput(pieceTogether());
 }
 
@@ -172,7 +172,7 @@ function assignEmail(str) {
 	strObj.originalEmail = str;
 }
 
-function makeSafeText() {
+function assignSafeText() {
 	var newString = strObj.originalEmail.replace(reAt, ' at ').replace(reDot, ' dot ');
 	strObj.safeText = newString;
 	howManyPieces();
