@@ -158,8 +158,7 @@ function hideErrors() {
 
 function makeCode(str) {
 	var theText;
-	str = str.toLowerCase();
-	strObj.originalEmail = str;
+	assignEmail(str);
 	if(isDivChecked === true && inputText$.val() !== inputText$.prop('defaultValue')) {
 		theText = inputText$.val();
 		theText = theText.replace(reg1, '&#39;').replace(reg2, '&#34;').replace(reg3, '&#60;').replace(reg4, '&#62;');
@@ -169,6 +168,13 @@ function makeCode(str) {
 	}
 	makeSafeText();
 	showOutput(pieceTogether());
+}
+
+function assignEmail(str) {
+	// convert email to all lowercase
+	str = str.toLowerCase();
+	// assign email to strObj
+	strObj.originalEmail = str;
 }
 
 function makeSafeText() {
