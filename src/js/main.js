@@ -166,6 +166,7 @@ function makeCode(str) {
 	assignDateID();
 	assignSpanTag();
 	assignLink();
+	strObj.emailLink = makeSafeForHTML(strObj.emailLink);
 	assignNumOfPieces();
 	populateVarAndChoppedArray();
 	showOutput(pieceTogether());
@@ -236,6 +237,10 @@ function assignLink() {
 	strObj.emailLink = theLink;
 }
 
+function makeSafeForHTML(str) {
+	return str.replace(reg1, '&#39;').replace(reg2, '&#34;').replace(reg3, '&#60;').replace(reg4, '&#62;');
+}
+
 function assignNumOfPieces() {
 	// determine number of chars in emailLink string and divide by 3 to get num of vars needed
 	strObj.num = Math.ceil(strObj.emailLink.length/3);
@@ -253,8 +258,6 @@ function populateVarAndChoppedArray() {
 	// store the array of variables and chopped pieces in strObj
 	strObj.varArray = varArray;
 	strObj.choppedArray = choppedArray;
-	console.log(strObj.varArray);
-	console.log(strObj.choppedArray);
 }
 
 function makeVariable() {
