@@ -28,12 +28,14 @@ var heading$           = $('h1'),
 // regular expression variables
     emailRegex         = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     // regular expressions to clean HTML for output
-    reg1               = /'/g,
-    reg2               = /"/g,
-    reg3               = /</g,
-    reg4               = />/g,
     reAt               = /@/g,
     reDot              = /\./g,
+				regExObj = {
+					"'": '&amp;#39;',
+					'"': '&amp;quot;',
+					'<': '&amp;lt;',
+					'>': '&amp;gt;'
+				},
 
 // array variables, generates via generateLetterArray function below
     letters            = generateLetterArray(),
@@ -200,7 +202,9 @@ function assignCustomText() {
 }
 
 function makeSafeForHTML(str) {
-	return str.replace(reg1, '&amp;#39;').replace(reg2, '&amp;#34;').replace(reg3, '&amp;#60;').replace(reg4, '&amp;#62;');
+	return str.replace(/[<>"']/g, function(s) {
+		return regExObj[s];
+	});
 }
 
 function assignDateID() {
@@ -326,7 +330,7 @@ function pieceTogether() {
  }
  strObj.outputString += '</a>\'';
  strObj.outputString += '})();</script>';
-	strObj.outputString = strObj.outputString.replace(reg1, '&#39;').replace(reg2, '&#34;').replace(reg3, '&#60;').replace(reg4, '&#62;');
+	strObj.outputString = strObj.outputString.replace(/'/g, '&#39;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 	return strObj.outputString;
 }
 
