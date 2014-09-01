@@ -254,52 +254,52 @@ function showOutput(outputString) {
 // ========================= piecing string together // 
 
 function pieceTogether() {
-	outputString =  '';
-	outputString += '<span id="';
-	outputString += strObj.dateID;
-	outputString += '" class="magicEmail">';
+	strObj.outputString =  '';
+	strObj.outputString += '<span id="';
+	strObj.outputString += strObj.dateID;
+	strObj.outputString += '" class="magicEmail">';
 	if(strObj.customText !== '') {
-		outputString += strObj.customText + ' (' + strObj.safeText + ')';
+		strObj.outputString += strObj.customText + ' (' + strObj.safeText + ')';
 	} else {
-		outputString += strObj.safeText;
+		strObj.outputString += strObj.safeText;
 	}
-	outputString += '</span>';
-	outputString += '<script type="text/javascript">';
-	outputString += '(function(){';
-	outputString += 'var ';
+	strObj.outputString += '</span>';
+	strObj.outputString += '<script type="text/javascript">';
+	strObj.outputString += '(function(){';
+	strObj.outputString += 'var ';
 	for(var i = 0, count = (strObj.num - 1); i < count; i++) {
-		outputString += strObj.varArray[i];
-		outputString += ' = ';
-		outputString += ' "';
-		outputString += strObj.choppedArray[i];
-		outputString += '", ';
+		strObj.outputString += strObj.varArray[i];
+		strObj.outputString += ' = ';
+		strObj.outputString += ' "';
+		strObj.outputString += strObj.choppedArray[i];
+		strObj.outputString += '", ';
 	}
-	outputString += strObj.varArray[strObj.num - 1];
-	outputString += ' = ';
-	outputString += ' "';
-	outputString += strObj.choppedArray[strObj.num - 1];
-	outputString += '";';
-	outputString += 'var a = document.getElementById(\'';
-	outputString += strObj.dateID;
-	outputString += '\');';
- outputString += 'a.innerHTML = \'<a href="mailto:\' + ';
+	strObj.outputString += strObj.varArray[strObj.num - 1];
+	strObj.outputString += ' = ';
+	strObj.outputString += ' "';
+	strObj.outputString += strObj.choppedArray[strObj.num - 1];
+	strObj.outputString += '";';
+	strObj.outputString += 'var a = document.getElementById(\'';
+	strObj.outputString += strObj.dateID;
+	strObj.outputString += '\');';
+ strObj.outputString += 'a.innerHTML = \'<a href="mailto:\' + ';
  for(var j = 0, jcount = (strObj.num); j < jcount; j++) {
-		outputString += strObj.varArray[j] + ' + ';
+		strObj.outputString += strObj.varArray[j] + ' + ';
  }
- outputString += '\'">';
+ strObj.outputString += '\'">';
  if(strObj.customText !== '') {
-		outputString += strObj.customText;
+		strObj.outputString += strObj.customText;
  } else {
-		outputString += '\' + ';
+		strObj.outputString += '\' + ';
 		for(var k = 0, kcount = (strObj.num); k < kcount; k++) {
-			outputString += strObj.varArray[k] + ' + ';
+			strObj.outputString += strObj.varArray[k] + ' + ';
 		}
-		outputString += '\'';
+		strObj.outputString += '\'';
  }
- outputString += '</a>\'';
- outputString += '})();</script>';
-	outputString = outputString.replace(reg1, '&#39;').replace(reg2, '&#34;').replace(reg3, '&#60;').replace(reg4, '&#62;');
-	return outputString;
+ strObj.outputString += '</a>\'';
+ strObj.outputString += '})();</script>';
+	strObj.outputString = strObj.outputString.replace(reg1, '&#39;').replace(reg2, '&#34;').replace(reg3, '&#60;').replace(reg4, '&#62;');
+	return strObj.outputString;
 }
 
 // ========================= end piecing string together //
