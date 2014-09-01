@@ -169,7 +169,7 @@ function makeCode(str) {
 	assignSpanTag();
 	assignLink();
 	assignNumOfPieces();
-	populateVarAndChoppedArray();
+	populateArrays();
 	showOutput(pieceTogether());
 }
 
@@ -228,7 +228,6 @@ function assignSpanTag() {
 	theString += '</span>';
 	// assign span tag string to strObj
 	strObj.spanTag = theString;
-	console.log(theString);
 }
 
 function assignLink() {
@@ -244,7 +243,6 @@ function assignLink() {
 	}
 	theLink += '</a>';
 	strObj.emailLink = theLink;
-	console.log(strObj.emailLink);
 }
 
 function assignNumOfPieces() {
@@ -252,18 +250,32 @@ function assignNumOfPieces() {
 	strObj.num = Math.ceil(strObj.emailLink.length/3);
 }
 
-function populateVarAndChoppedArray() {
+function populateArrays() {
 	// create an array of random letters based on string that needs to be divided up
-	var varArray = [], choppedArray = [];
+	var varArray = [], choppedArray = [], jumbleArray = new Array(strObj.num), newNum;
+	function pickNewNum() {
+		newNum = Math.floor(Math.random() * strObj.num);
+		if(!jumbleArray[newNum]) {
+			jumbleArray[newNum] = [varArray[i], i];
+		} else {
+			pickNewNum();
+		}
+	}
 	for(var i = 0; i < strObj.num; i++) {
 		// for every three characters in string, create a new random variable
 		varArray[i] = makeVariable();
 		// for every three characters in string, slice off and store in choppedArray
 		choppedArray[i] = strObj.emailLink.slice((i * 3), (i * 3 + 3));
+		// jumble
+		pickNewNum();
 	}
 	// store the array of variables and chopped pieces in strObj
 	strObj.varArray = varArray;
 	strObj.choppedArray = choppedArray;
+	strObj.jumbleArray = jumbleArray;
+	console.log(varArray);
+	console.log(choppedArray);
+	console.log(jumbleArray);
 }
 
 function makeVariable() {
