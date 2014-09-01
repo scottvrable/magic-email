@@ -40,17 +40,18 @@ var heading$           = $('h1'),
 
 // object variables
     strObj = {
-	originalEmail: null,
-	safeText: null,
-	customText: null,
-	varArray: null,
-	num: null,
-	choppedArray: null,
-	jumbleArray: null,
-	dateID: null,
-	outputString: null,
-	spanTag: null
-};
+     originalEmail: null,
+     safeText: null,
+     customText: null,
+     varArray: null,
+     num: null,
+     choppedArray: null,
+     jumbleArray: null,
+     dateID: null,
+     outputString: null,
+     spanTag: null,
+     emailLink: null
+    };
 
 // ========================= finish grabbing variables //
 
@@ -164,6 +165,7 @@ function makeCode(str) {
 	assignCustomText();
 	assignDateID();
 	assignSpanTag();
+	assignLink();
 	showOutput(pieceTogether());
 }
 
@@ -216,6 +218,21 @@ function assignSpanTag() {
 	theString += '</span>';
 	// assign span tag string to strObj
 	strObj.spanTag = theString;
+}
+
+function assignLink() {
+	// assemble and assign link that will be appear if user has JS running
+	var theLink = '';
+	theLink += '<a href="mailto:';
+	theLink += strObj.originalEmail;
+	theLink += '" target="_blank">';
+	if(strObj.customText !== '') {
+		theLink += strObj.originalEmail;
+	} else {
+		theLink += strObj.customText;
+	}
+	theLink += '</a>';
+	strObj.emailLink = theLink;
 }
 
 function howManyPieces() {
