@@ -34,6 +34,8 @@ var heading$           = $('h1'),
     reg2               = /"/g,
     reg3               = /</g,
     reg4               = />/g,
+    reAt               = /@/g,
+    reDot              = /\./g,
 
 // array variables, generates via generateLetterArray function below
     letters            = generateLetterArray(),
@@ -170,6 +172,13 @@ function assignEmail(str) {
 	strObj.originalEmail = str;
 }
 
+function makeSafeText() {
+	var newString = strObj.originalEmail.replace(reAt, ' at ');
+	newString = newString.replace(reDot, ' dot ');
+	strObj.safeText = newString;
+	howManyPieces();
+}
+
 function assignCustomText() {
 	var theText;
 	// only do this if box is checked and user input something in custom text field
@@ -182,15 +191,6 @@ function assignCustomText() {
 		// if nothing, assign empty string to strObj for custom text
 		strObj.customText = '';
 	}
-}
-
-function makeSafeText() {
-	var reAt = /@/g;
-	var reDot = /\./g;
-	var newString = strObj.originalEmail.replace(reAt, ' at ');
-	newString = newString.replace(reDot, ' dot ');
-	strObj.safeText = newString;
-	howManyPieces();
 }
 
 function howManyPieces() {
