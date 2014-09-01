@@ -200,7 +200,7 @@ function assignCustomText() {
 }
 
 function makeSafeForHTML(str) {
-	return str.replace(reg1, '&#92;&#39;').replace(reg2, '&#92;&#34;').replace(reg3, '&#92;&#60;').replace(reg4, '&#92;&#62;');
+	return str.replace(reg1, '&#39;').replace(reg2, '&#34;').replace(reg3, '&#60;').replace(reg4, '&#62;');
 }
 
 function assignDateID() {
