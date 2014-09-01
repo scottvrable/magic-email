@@ -177,6 +177,20 @@ function assignEmail(str) {
 	strObj.originalEmail = str;
 }
 
+function assignCustomText() {
+	var theText;
+	// only do this if box is checked and user input something in custom text field
+	if(isDivChecked === true && inputText$.val() !== inputText$.prop('defaultValue')) {
+		// assign user custom text to strObj for custom text
+		theText = inputText$.val();
+		theText = theText.replace(reg1, '&#39;').replace(reg2, '&#34;').replace(reg3, '&#60;').replace(reg4, '&#62;');
+		strObj.customText = theText;
+	} else {
+		// if nothing, assign empty string to strObj for custom text
+		strObj.customText = '';
+	}
+}
+
 function makeSafeText() {
 	var reAt = /@/g;
 	var reDot = /\./g;
