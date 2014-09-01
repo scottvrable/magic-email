@@ -226,19 +226,18 @@ function assignLink() {
 	theLink += '<a href="mailto:';
 	theLink += strObj.originalEmail;
 	theLink += '" target="_blank">';
-	if(strObj.customText !== '') {
+	if(strObj.customText === '') {
 		theLink += strObj.originalEmail;
 	} else {
-		theLink += strObj.custom;
+		theLink += strObj.customText;
 	}
 	theLink += '</a>';
 	strObj.emailLink = theLink;
 }
 
 function assignNumOfPieces() {
+	// determine number of chars in emailLink string and divide by 3 to get num of vars needed
 	strObj.num = Math.ceil(strObj.emailLink.length/3);
-	console.log(strObj.emailLink);
-	console.log(strObj.num);
 }
 
 function makeVars() {
