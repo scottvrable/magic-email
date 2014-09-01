@@ -190,12 +190,17 @@ function assignCustomText() {
 	if(isDivChecked === true && inputText$.val() !== inputText$.prop('defaultValue')) {
 		// assign user custom text to strObj for custom text
 		theText = inputText$.val();
-		theText = theText.replace(reg1, '&#39;').replace(reg2, '&#34;').replace(reg3, '&#60;').replace(reg4, '&#62;');
+		// clean out non-HTML safe characters
+		theText = makeSafeForHTML(theText);
 		strObj.customText = theText;
 	} else {
 		// if nothing, assign empty string to strObj for custom text
 		strObj.customText = '';
 	}
+}
+
+function makeSafeForHTML(str) {
+	return str.replace(reg1, '&#92;&#39;').replace(reg2, '&#92;&#34;').replace(reg3, '&#92;&#60;').replace(reg4, '&#92;&#62;');
 }
 
 function assignDateID() {
@@ -219,6 +224,7 @@ function assignSpanTag() {
 	theString += '</span>';
 	// assign span tag string to strObj
 	strObj.spanTag = theString;
+	console.log(theString);
 }
 
 function assignLink() {
@@ -390,8 +396,6 @@ mask$.click(function() {
 output$.click(function(e) {
 	e.stopPropagation();
 });
-
-// store str.replace(reg1, '&#39;').replace(reg2, '&#34;').replace(reg3, '&#60;').replace(reg4, '&#62;');
 
 // ========================= end attaching events to inputs //
 
