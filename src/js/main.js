@@ -48,6 +48,7 @@ var heading$           = $('h1'),
 	varArray: null,
 	num: null,
 	choppedArray: null,
+	jumbleArray: null,
 	dateID: null
 };
 
