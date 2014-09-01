@@ -166,6 +166,7 @@ function makeCode(str) {
 	assignDateID();
 	assignSpanTag();
 	assignLink();
+	assignNumOfPieces();
 	showOutput(pieceTogether());
 }
 
@@ -180,7 +181,6 @@ function assignSafeText() {
 	// replace @ and . with " at " and " dot " for text-based version of email
 	var newString = strObj.originalEmail.replace(reAt, ' at ').replace(reDot, ' dot ');
 	strObj.safeText = newString;
-	howManyPieces();
 }
 
 function assignCustomText() {
@@ -229,15 +229,16 @@ function assignLink() {
 	if(strObj.customText !== '') {
 		theLink += strObj.originalEmail;
 	} else {
-		theLink += strObj.customText;
+		theLink += strObj.custom;
 	}
 	theLink += '</a>';
 	strObj.emailLink = theLink;
 }
 
-function howManyPieces() {
-	strObj.num = Math.ceil(strObj.originalEmail.length/3);
-	makeVars(strObj.num);
+function assignNumOfPieces() {
+	strObj.num = Math.ceil(strObj.emailLink.length/3);
+	console.log(strObj.emailLink);
+	console.log(strObj.num);
 }
 
 function makeVars() {
