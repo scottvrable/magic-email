@@ -170,7 +170,7 @@ function makeCode(str) {
 	assignLink();
 	assignNumOfPieces();
 	populateArrays();
-	showOutput(pieceTogether());
+	pieceTogether();
 }
 
 function assignEmail(str) {
@@ -273,9 +273,6 @@ function populateArrays() {
 	strObj.varArray = varArray;
 	strObj.choppedArray = choppedArray;
 	strObj.jumbleArray = jumbleArray;
-	console.log(varArray);
-	console.log(choppedArray);
-	console.log(jumbleArray);
 }
 
 function makeVariable() {
@@ -307,43 +304,34 @@ function showOutput(outputString) {
 // ========================= piecing string together // 
 
 function pieceTogether() {
-	strObj.outputString =  strObj.spanTag;
+	strObj.outputString  = strObj.spanTag;
 	strObj.outputString += '<script type="text/javascript">';
 	strObj.outputString += '(function(){';
 	strObj.outputString += 'var ';
-	for(var i = 0, count = (strObj.num - 1); i < count; i++) {
-		strObj.outputString += strObj.varArray[i];
-		strObj.outputString += ' = ';
-		strObj.outputString += ' "';
-		strObj.outputString += strObj.choppedArray[i];
-		strObj.outputString += '", ';
+	for(var i = 0; i < strObj.num; i++) {
+		strObj.outputString += strObj.jumbleArray[i][0];
+		strObj.outputString += ' = \'';
+		strObj.outputString += strObj.choppedArray[strObj.jumbleArray[i][1]];
+		if(i !== (strObj.num - 1)) {
+			strObj.outputString += '\', ';
+		} else {
+			strObj.outputString += '\'; ';
+		}
 	}
-	strObj.outputString += strObj.varArray[strObj.num - 1];
-	strObj.outputString += ' = ';
-	strObj.outputString += ' "';
-	strObj.outputString += strObj.choppedArray[strObj.num - 1];
-	strObj.outputString += '";';
 	strObj.outputString += 'var a = document.getElementById(\'';
 	strObj.outputString += strObj.dateID;
 	strObj.outputString += '\');';
- strObj.outputString += 'a.innerHTML = \'<a href="mailto:\' + ';
- for(var j = 0, jcount = (strObj.num); j < jcount; j++) {
-		strObj.outputString += strObj.varArray[j] + ' + ';
- }
- strObj.outputString += '\'">';
- if(strObj.customText !== '') {
-		strObj.outputString += strObj.customText;
- } else {
-		strObj.outputString += '\' + ';
-		for(var k = 0, kcount = (strObj.num); k < kcount; k++) {
-			strObj.outputString += strObj.varArray[k] + ' + ';
+ strObj.outputString += 'a.innerHTML = ';
+ for(var j = 0; j < strObj.num; j++) {
+		strObj.outputString += strObj.varArray[j];
+		if(j !== (strObj.num - 1)) {
+			strObj.outputString += ' + ';
+		} else {
+			strObj.outputString += ';';
 		}
-		strObj.outputString += '\'';
- }
- strObj.outputString += '</a>\'';
- strObj.outputString += '})();</script>';
-	strObj.outputString = strObj.outputString.replace(/'/g, '&#39;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-	return strObj.outputString;
+	}
+	strObj.outputString += '})();</script>';
+ console.log(strObj.outputString);
 }
 
 // ========================= end piecing string together //
