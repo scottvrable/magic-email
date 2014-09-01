@@ -8,7 +8,6 @@ $('#noJavaScript').remove();
 var heading$           = $('h1'),
     headerHolder$      = $('#headerHolder'),
     formHolder$        = $('#formHolder'),
-    theForm$           = $('#theForm'),
     inputEmail$        = $('#inputEmail'),
     textLabel$         = $('#textLabel'),
     textField$         = $('#textField'),
