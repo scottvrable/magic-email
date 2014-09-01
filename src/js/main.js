@@ -167,6 +167,7 @@ function makeCode(str) {
 	assignSpanTag();
 	assignLink();
 	assignNumOfPieces();
+	populateVarArray();
 	showOutput(pieceTogether());
 }
 
@@ -240,13 +241,15 @@ function assignNumOfPieces() {
 	strObj.num = Math.ceil(strObj.emailLink.length/3);
 }
 
-function makeVars() {
-	var varArray = [], num = strObj.num;
-	for(var i = 0, count = num; i < count; i++) {
+function populateVarArray() {
+	// create an array of random letters based on string that needs to be divided up
+	var varArray = [];
+	for(var i = 0; i < strObj.num; i++) {
+		// for every three characters in string, create a new random variable
 		varArray[i] = makeVariable();
 	}
+	// store the array of variables in strObj
 	strObj.varArray = varArray;
-	chopEmail();
 }
 
 function makeVariable() {
