@@ -162,6 +162,7 @@ function makeCode(str) {
 	assignEmail(str);
 	assignSafeText();
 	assignCustomText();
+	assignDateID();
 	showOutput(pieceTogether());
 }
 
@@ -191,6 +192,11 @@ function assignCustomText() {
 		// if nothing, assign empty string to strObj for custom text
 		strObj.customText = '';
 	}
+}
+
+function assignDateID() {
+	// create a unique ID for span based on random letter and time
+	strObj.dateID = letters[Math.floor(Math.random() * letters.length)] + new Date().getTime();
 }
 
 function howManyPieces() {
@@ -232,11 +238,6 @@ function chopEmail() {
 		choppedArray[i] = strObj.originalEmail.slice((i * 3), (i * 3 + 3));
 	}
 	strObj.choppedArray = choppedArray;
-	makeDateID();
-}
-
-function makeDateID() {
-	strObj.dateID = letters[Math.floor(Math.random() * letters.length)] + new Date().getTime();
 }
 
 function showOutput(outputString) {
