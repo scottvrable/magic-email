@@ -173,8 +173,7 @@ function assignEmail(str) {
 }
 
 function makeSafeText() {
-	var newString = strObj.originalEmail.replace(reAt, ' at ');
-	newString = newString.replace(reDot, ' dot ');
+	var newString = strObj.originalEmail.replace(reAt, ' at ').replace(reDot, ' dot ');
 	strObj.safeText = newString;
 	howManyPieces();
 }
