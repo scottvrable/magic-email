@@ -167,7 +167,7 @@ function makeCode(str) {
 	assignSpanTag();
 	assignLink();
 	assignNumOfPieces();
-	populateVarArray();
+	populateVarAndChoppedArray();
 	showOutput(pieceTogether());
 }
 
@@ -241,16 +241,20 @@ function assignNumOfPieces() {
 	strObj.num = Math.ceil(strObj.emailLink.length/3);
 }
 
-function populateVarArray() {
+function populateVarAndChoppedArray() {
 	// create an array of random letters based on string that needs to be divided up
-	var varArray = [];
+	var varArray = [], choppedArray = [];
 	for(var i = 0; i < strObj.num; i++) {
 		// for every three characters in string, create a new random variable
 		varArray[i] = makeVariable();
+		// for every three characters in string, slice off and store in choppedArray
+		choppedArray[i] = strObj.emailLink.slice((i * 3), (i * 3 + 3));
 	}
-	// store the array of variables in strObj
+	// store the array of variables and chopped pieces in strObj
 	strObj.varArray = varArray;
+	strObj.choppedArray = choppedArray;
 	console.log(strObj.varArray);
+	console.log(strObj.choppedArray);
 }
 
 function makeVariable() {
@@ -265,14 +269,6 @@ function makeVariable() {
 		varStr += letters[Math.floor(Math.random() * letters.length)];
 	}
 	return varStr;
-}
-
-function chopEmail() {
-	var choppedArray = [];
-	for(var i = 0, count = strObj.num; i < count; i++) {
-		choppedArray[i] = strObj.originalEmail.slice((i * 3), (i * 3 + 3));
-	}
-	strObj.choppedArray = choppedArray;
 }
 
 function showOutput(outputString) {
