@@ -254,13 +254,13 @@ function populateVarArray() {
 
 function makeVariable() {
 	var varStr, randNum;
-	function pickNum() {
+	function pickNumOfCharsInVar() {
 		randNum = Math.ceil(Math.random() * 16);
 		if(randNum < 6) {
-			pickNum();
+			randNum = 12;
 		}
 	}
-	pickNum();
+	pickNumOfCharsInVar();
 	for(var i = 0; i < randNum; i++) {
 		if(typeof varStr !== 'undefined') {
 			varStr += letters[Math.floor(Math.random() * letters.length)];
