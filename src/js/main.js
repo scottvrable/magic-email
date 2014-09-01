@@ -166,7 +166,6 @@ function makeCode(str) {
 	assignDateID();
 	assignSpanTag();
 	assignLink();
-	strObj.emailLink = makeSafeForHTML(strObj.emailLink);
 	assignNumOfPieces();
 	populateVarAndChoppedArray();
 	showOutput(pieceTogether());
@@ -235,10 +234,7 @@ function assignLink() {
 	}
 	theLink += '</a>';
 	strObj.emailLink = theLink;
-}
-
-function makeSafeForHTML(str) {
-	return str.replace(reg1, '&#39;').replace(reg2, '&#34;').replace(reg3, '&#60;').replace(reg4, '&#62;');
+	console.log(strObj.emailLink);
 }
 
 function assignNumOfPieces() {
@@ -394,6 +390,8 @@ mask$.click(function() {
 output$.click(function(e) {
 	e.stopPropagation();
 });
+
+// store str.replace(reg1, '&#39;').replace(reg2, '&#34;').replace(reg3, '&#60;').replace(reg4, '&#62;');
 
 // ========================= end attaching events to inputs //
 
