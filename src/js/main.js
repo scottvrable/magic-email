@@ -250,23 +250,19 @@ function populateVarArray() {
 	}
 	// store the array of variables in strObj
 	strObj.varArray = varArray;
+	console.log(strObj.varArray);
 }
 
 function makeVariable() {
-	var varStr, randNum;
-	function pickNumOfCharsInVar() {
-		randNum = Math.ceil(Math.random() * 16);
-		if(randNum < 6) {
-			randNum = 12;
-		}
+	var varStr = '', randNum;
+	// pick random number up to 16, if less than 6, change to 12
+	randNum = Math.ceil(Math.random() * 16);
+	if(randNum < 6) {
+		randNum = 12;
 	}
-	pickNumOfCharsInVar();
+	// build random variable and return to populateVarArray()
 	for(var i = 0; i < randNum; i++) {
-		if(typeof varStr !== 'undefined') {
-			varStr += letters[Math.floor(Math.random() * letters.length)];
-		} else {
-			varStr = letters[Math.floor(Math.random() * letters.length)];
-		}
+		varStr += letters[Math.floor(Math.random() * letters.length)];
 	}
 	return varStr;
 }
