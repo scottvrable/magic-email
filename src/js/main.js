@@ -25,7 +25,6 @@ var heading$           = $('h1'),
 
 // normal JavaScript variables
     isDivChecked       = false,
-    outputString       = '',
 
 // regular expression variables
     emailRegex         = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -49,7 +48,8 @@ var heading$           = $('h1'),
 	num: null,
 	choppedArray: null,
 	jumbleArray: null,
-	dateID: null
+	dateID: null,
+	outputString: null
 };
 
 // ========================= finish grabbing variables //
