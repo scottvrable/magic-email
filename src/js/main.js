@@ -201,7 +201,7 @@ function assignCustomText() {
 		// assign user custom text to strObj for custom text
 		theText = inputText$.val();
 		// clean out non-HTML safe characters
-		theText = makeSafeForHTML(theText);
+		theText = makeSafeForHTML(theText, 'doubleEsc');
 		strObj.customText = theText;
 	} else {
 		// if nothing, assign empty string to strObj for custom text
@@ -209,9 +209,9 @@ function assignCustomText() {
 	}
 }
 
-function makeSafeForHTML(str) {
+function makeSafeForHTML(str, singleOrDouble) {
 	return str.replace(/[<>"']/g, function(s) {
-		return regExObj.doubleEsc[s];
+		return regExObj[singleOrDouble][s];
 	});
 }
 
