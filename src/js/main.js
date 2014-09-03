@@ -31,10 +31,18 @@ var heading$           = $('h1'),
     reAt               = /@/g,
     reDot              = /\./g,
 				regExObj = {
-					"'": '&amp;#39;',
-					'"': '&amp;quot;',
-					'<': '&amp;lt;',
-					'>': '&amp;gt;'
+					singleEsc: {
+						"'": '&#39;',
+						'"': '&quot;',
+						'<': '&lt;',
+						'>': '&gt;'
+					},
+					doubleEsc: {
+						"'": '&amp;#39;',
+						'"': '&amp;quot;',
+						'<': '&amp;lt;',
+						'>': '&amp;gt;'
+					}
 				},
 
 // array variables, generates via generateLetterArray function below
@@ -203,7 +211,7 @@ function assignCustomText() {
 
 function makeSafeForHTML(str) {
 	return str.replace(/[<>"']/g, function(s) {
-		return regExObj[s];
+		return regExObj.doubleEsc[s];
 	});
 }
 
