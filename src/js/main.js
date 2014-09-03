@@ -305,6 +305,7 @@ function showOutput(outputString) {
 
 function pieceTogether() {
 	strObj.outputString  = strObj.spanTag;
+	strObj.outputString += '\n';
 	strObj.outputString += '<script type="text/javascript">';
 	strObj.outputString += '(function(){';
 	strObj.outputString += 'var ';
