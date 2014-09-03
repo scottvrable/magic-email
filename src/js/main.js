@@ -28,9 +28,11 @@ var heading$           = $('h1'),
 // regular expression variables
     emailRegex         = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     // regular expressions to clean HTML for output
-    reAt               = /@/g,
-    reDot              = /\./g,
 				regExObj = {
+					emailEsc: {
+						'@': ' at ',
+						'.': ' dot '
+					},
 					singleEsc: {
 						"'": '&#39;',
 						'"': '&quot;',
@@ -190,7 +192,8 @@ function assignEmail(str) {
 
 function assignSafeText() {
 	// replace @ and . with " at " and " dot " for text-based version of email
-	var newString = strObj.originalEmail.replace(reAt, ' at ').replace(reDot, ' dot ');
+	// var newString = strObj.originalEmail.replace(reAt, ' at ').replace(reDot, ' dot ');
+	var newString = makeSafeForHTML(strObj.originalEmail, 'emailEsc');
 	strObj.safeText = newString;
 }
 
@@ -209,10 +212,16 @@ function assignCustomText() {
 	}
 }
 
-function makeSafeForHTML(str, singleOrDouble) {
-	return str.replace(/[<>"']/g, function(s) {
-		return regExObj[singleOrDouble][s];
-	});
+function makeSafeForHTML(str, whichSubObj) {
+	if(whichSubObj === 'singleEsc' || whichSubObj === 'doubleEsc') {
+		return str.replace(/[<>"']/g, function(s) {
+			return regExObj[whichSubObj][s];
+		});
+	} else if(whichSubObj === 'emailEsc') {
+		return str.replace(/[@.]/g, function(s) {
+			return regExObj[whichSubObj][s];
+		});
+	}
 }
 
 function assignDateID() {
