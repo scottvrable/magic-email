@@ -200,7 +200,7 @@ function assignSafeText() {
 }
 
 function assignCustomText() {
-	var theText, theTextForJS;
+	var theText = '', theTextForJS = '';
 	// only do this if box is checked and user input something in custom text field
 	if(isDivChecked === true && inputText$.val() !== inputText$.prop('defaultValue')) {
 		// assign user custom text to theText and theTextForJS
@@ -208,13 +208,9 @@ function assignCustomText() {
 		// clean out non-HTML safe characters
 		theText = makeSafeForHTML(theText, 'doubleEsc');
 		theTextForJS = makeSafeForHTML(theTextForJS, 'singleEsc');
-		strObj.customText = theText;
-		strObj.customTextForJS = theTextForJS;
-	} else {
-		// if nothing, assign empty string to strObj for custom text
-		strObj.customText = '';
-		strObj.customTextForJS = '';
 	}
+	strObj.customText = theText;
+	strObj.customTextForJS = theTextForJS;
 }
 
 function makeSafeForHTML(str, whichSubObj) {
