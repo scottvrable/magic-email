@@ -55,6 +55,7 @@ var heading$           = $('h1'),
      originalEmail: null,
      safeText: null,
      customText: null,
+     customTextForJS: null,
      varArray: null,
      num: null,
      choppedArray: null,
@@ -199,17 +200,20 @@ function assignSafeText() {
 }
 
 function assignCustomText() {
-	var theText;
+	var theText, theTextForJS;
 	// only do this if box is checked and user input something in custom text field
 	if(isDivChecked === true && inputText$.val() !== inputText$.prop('defaultValue')) {
-		// assign user custom text to strObj for custom text
-		theText = inputText$.val();
+		// assign user custom text to theText and theTextForJS
+		theTextForJS = theText = inputText$.val();
 		// clean out non-HTML safe characters
 		theText = makeSafeForHTML(theText, 'doubleEsc');
+		theTextForJS = makeSafeForHTML(theTextForJS, 'singleEsc');
 		strObj.customText = theText;
+		strObj.customTextForJS = theTextForJS;
 	} else {
 		// if nothing, assign empty string to strObj for custom text
 		strObj.customText = '';
+		strObj.customTextForJS = '';
 	}
 }
 
@@ -254,10 +258,10 @@ function assignLink() {
 	theLink += '<a href="mailto:';
 	theLink += strObj.originalEmail;
 	theLink += '" target="_blank">';
-	if(strObj.customText === '') {
+	if(strObj.customTextForJS === '') {
 		theLink += strObj.originalEmail;
 	} else {
-		theLink += strObj.customText;
+		theLink += strObj.customTextForJS;
 	}
 	theLink += '</a>';
 	strObj.emailLink = theLink;
