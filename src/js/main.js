@@ -181,6 +181,7 @@ function makeCode(str) {
 	assignNumOfPieces();
 	populateArrays();
 	pieceTogether();
+	outputCode();
 }
 
 function assignEmail(str) {
@@ -357,6 +358,14 @@ function pieceTogether() {
 // ========================= end piecing string together //
 
 // ========================= begin outputting code string //
+
+function outputCode() {
+	theCode$.css('height', 350).html(strObj.outputString);
+	mask$.fadeIn(400);
+	if(theCode$.prop('scrollHeight')) {
+		theCode$.css('height', theCode$.prop('scrollHeight') - 40);
+	}
+}
 
 // ========================= end outputting code string //
 
