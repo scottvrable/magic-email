@@ -283,6 +283,7 @@ function populateArrays() {
 		// for every three characters in string, create a new random variable
 		varArray[i] = makeVariable();
 		// for every three characters in string, slice off and store in choppedArray
+		// replace ampersands with code just in case character codes fit into one var
 		choppedArray[i] = strObj.emailLink.slice((i * 3), (i * 3 + 3)).replace(/&/g, '&amp;');
 		// jumble
 		pickNewNum();
