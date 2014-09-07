@@ -390,6 +390,7 @@ mask$.append(output$);
 		$(document.body).append(mask$);
 		hasMaskAppeared = true;
 	}
+	output$.css({'margin-top': (window$.scrollTop() + 20)});
 	mask$.fadeIn(400);
 	if(theCode$.prop('scrollHeight')) {
 		theCode$.css('height', theCode$.prop('scrollHeight') - 40);
