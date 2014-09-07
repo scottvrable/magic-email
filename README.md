@@ -1,4 +1,4 @@
-# The Magic Spambot-Resistant Email Link Generator
+# [The Magic Spambot-Resistant Email Link Generator](http://scottvrable.github.io/magic-email/)
 
 Enter your email address and optional display text into this simple, handy tool and it will magically output scrambled JavaScript code that helps prevent spambots from harvesting your email address from your blog or personal site.
 
