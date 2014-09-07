@@ -178,6 +178,7 @@ h1 {
 		@include bRadius(6px);
 		@include bxSh(3px, 3px, 3px, rgba(0,0,0, 0.3));
 		color: #404040;
+		cursor: pointer;
 		display: none;
 		left: 13px;
 		padding: 30px 20px;
@@ -205,6 +206,7 @@ h1 {
 .mask {
 	background: rgba(0,0,0, 0.7);
 	bottom: 0;
+	cursor: pointer;
 	display: none;
 	left: 0;
 	position: fixed;
