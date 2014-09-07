@@ -6,6 +6,7 @@ $('#noJavaScript').remove();
 
 // jQuery variables
 var window$            = $(window),
+    wrapper$           = $('#wrapper'),
     heading$           = $('h1'),
     headerHolder$      = $('#headerHolder'),
     formHolder$        = $('#formHolder'),
@@ -14,7 +15,6 @@ var window$            = $(window),
     textField$         = $('#textField'),
     inputText$         = $('#inputText'),
     divCheck$          = $('#divCheck'),
-    errorBoxes$        = $('.errorBox'),
     errorEmpty$        = $('#errorEmpty'),
     errorBad$          = $('#errorBad'),
     submitButton$      = $('#submitButton'),
@@ -26,6 +26,7 @@ var window$            = $(window),
 // normal JavaScript variables
     isDivChecked       = false,
     hasMaskAppeared    = false,
+    hasErrorAppeared   = false,
 
 // regular expression variables
     emailRegex         = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -156,18 +157,36 @@ function removeSpaces(inputObj) {
 
 // main validation
 function validate(str) {
+	var theError;
 	if(str === inputEmail$.prop('defaultValue')) {
-		errorEmpty$.stop().fadeIn(200);
+		theError = makeErrorBox('Psst! You need to enter an email...');
+		formHolder$.append(theError.fadeIn(200));
 	} else if(!emailRegex.test(str)) {
-		errorBad$.stop().fadeIn(200);
+		theError = makeErrorBox('This doesn\'t look like a valid email address...');
+		formHolder$.append(theError.fadeIn(200));
 	} else {
 		makeCode(str);
 	}
 }
 
+// function to make error messages
+function makeErrorBox(message) {
+	var errorBox;
+	if(hasErrorAppeared === false) {
+		errorBox = $('<div id="errorBox"></div>').addClass('errorBox');
+		hasErrorAppeared = true;
+	} else {
+		errorBox = $('#errorBox');
+	}
+	errorBox.click(function() {
+		hideErrors();
+	});
+	return errorBox.html('<span class="pointer"></span><p>' + message + '</p>');
+}
+
 // clear validation
 function hideErrors() {
-	errorBoxes$.stop().fadeOut(200);
+	$('#errorBox').stop().fadeOut(200);
 }
 
 // ========================= end validation // 
@@ -425,11 +444,6 @@ divCheck$.click(function() {
 			inputText$.stop().css({'opacity': 0});
 		});
 	}
-});
-
-//error message events
-errorBoxes$.click(function() {
-	hideErrors();
 });
 
 // submitButton events
