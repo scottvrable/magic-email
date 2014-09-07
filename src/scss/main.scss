@@ -204,14 +204,11 @@ h1 {
 	bottom: 0;
 	display: none;
 	left: 0;
-	position: fixed;
+	position: absolute;
 	right: 0;
 	top: 0;
 	width: 100%;
 	z-index: 1000;
-	.touch & {
-		position: absolute;
-	}
 	.output {
 		background: #fff;
 		@include bRadius(6px);
