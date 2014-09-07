@@ -28,7 +28,6 @@ var window$            = $(window),
     isDivChecked       = false,
     hasMaskAppeared    = false,
     hasErrorAppeared   = false,
-    isTouchEnabled     = false,
 
 // regular expression variables
     emailRegex         = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -472,7 +471,7 @@ output$.click(function(e) {
 });
 
 // moving mask on window scroll if not touch device
-if(isTouchEnabled === false) {
+if(Modernizr.touch === false) {
 	window$.scroll(function() {
 	adjustMaskPosition();
 	});
