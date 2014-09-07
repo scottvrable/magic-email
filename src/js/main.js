@@ -380,7 +380,6 @@ function pieceTogether() {
 	strObj.outputString += '})();</script>';
  // after string is assembled, single escape for output
  strObj.outputString = makeSafeForHTML(strObj.outputString, 'singleEsc');
- console.log(strObj.outputString);
 }
 
 // ========================= end piecing string together //
