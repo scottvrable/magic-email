@@ -182,7 +182,10 @@ h1 {
 		left: 13px;
 		padding: 30px 20px;
 		position: absolute;
-		top: 105px;
+		top: 125px;
+		@media only screen and (min-width: 450px) {
+			top: 105px;
+		}
 		p {
 			margin: 0;
 		}
