@@ -204,7 +204,6 @@ h1 {
 	}
 }
 .mask {
-	background: rgba(0,0,0, 0.7);
 	bottom: 0;
 	cursor: pointer;
 	display: none;
@@ -214,6 +213,9 @@ h1 {
 	top: 0;
 	width: 100%;
 	z-index: 1000;
+	.no-touch & {
+		background: rgba(0,0,0, 0.7);
+	}
 	.touch & {
 		position: absolute;
 	}
