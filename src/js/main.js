@@ -9,6 +9,7 @@ var window$            = $(window),
     wrapper$           = $('#wrapper'),
     heading$           = $('h1'),
     headerHolder$      = $('#headerHolder'),
+    mainContent$       = $('#mainContent'),
     formHolder$        = $('#formHolder'),
     inputEmail$        = $('#inputEmail'),
     textLabel$         = $('#textLabel'),
@@ -78,7 +79,7 @@ heading$.css('top', '-50%');
 headerHolder$.css('top', '50%').hide();
 textLabel$.css('opacity', 0);
 inputText$.css('opacity', 0);
-formHolder$.hide();
+mainContent$.hide();
 textField$.hide();
 
 // preloading, then triggering animation of logo
@@ -104,7 +105,7 @@ function animateLogo() {
 	headerHolder$.fadeIn(1000, function() {
 		heading$.delay(500).animate({top: "+=50%"}, 1000);
 		headerHolder$.delay(500).animate({top: "-=50%"}, 1000, function() {
-			formHolder$.fadeIn(500);
+			mainContent$.fadeIn(500);
 		});
 	});
 }

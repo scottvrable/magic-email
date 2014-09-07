@@ -171,7 +171,7 @@ h1 {
 		.touch & {
 			 margin: -3px 0 0 -3px;
 				width: 50px;
-			}
+		}
 	}
 	.errorBox {
 		background: $selectHighlight;
@@ -259,6 +259,35 @@ h1 {
 		}
 	}
 }
+article, footer {
+		color: $mute;
+		font-size: 0.8em;
+		line-height: 1.7;
+		padding: 30px 0 15px;
+		@media only screen and (max-width: 500px) {
+			padding: 30px 1em;
+		}
+		h2 {
+			font-size: 1.2em;
+			font-weight: bold;
+			margin: 0;
+		}
+		p {
+			margin: 1em 0;
+		}
+		a {
+			color: $mute;
+			font-weight: bold;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	footer {
+			border-top: solid 1px lighten($mute, 20%);
+			padding-top: 10px;
+		}
 
 /* main styles */
 

@@ -23,20 +23,32 @@
 	<div id="headerHolder" class="headerHolder">
 		<h1 class="ir">The Magic Spambot-Preventing Email Link Generator</h1>
 	</div>
-	<div id="formHolder" class="formHolder">
-		<form id="theForm" class="theForm">
-		<div id="emailField" class="emailField">
-			<label for="inputEmail">Enter the Email Address You Want to Convert:</label>
-			<input id="inputEmail" name="inputEmail" class="input mute" type="email" value="Ex: myname@domain.com" autocomplete="off" form="theForm">
-		</div> <!-- #emailField -->
-		<div id="textField" class="textField">
-			<label id="textLabel" for="inputEmail">Enter Your Custom Text:</label>
-			<input id="inputText" name="inputText" class="input mute" type="text" value="Ex: Click Here to Email Me." autocomplete="off" form="theForm">
-		</div> <!-- #textField -->
-			<div class="customDiv">Set Custom Link Text: <div id="divCheck" class="divCheck"></div></div>
-			<button id="submitButton" class="submitButton" form="theForm">Magic!</button>
-		</form> <!-- #theForm -->
-	</div> <!-- #formHolder -->
+	<div id="mainContent" class="mainContent">
+		<div id="formHolder" class="formHolder">
+			<form id="theForm" class="theForm">
+			<div id="emailField" class="emailField">
+				<label for="inputEmail">Enter the Email Address You Want to Convert:</label>
+				<input id="inputEmail" name="inputEmail" class="input mute" type="email" value="Ex: myname@domain.com" autocomplete="off" form="theForm">
+			</div> <!-- #emailField -->
+			<div id="textField" class="textField">
+				<label id="textLabel" for="inputEmail">Enter Your Custom Text:</label>
+				<input id="inputText" name="inputText" class="input mute" type="text" value="Ex: Click Here to Email Me." autocomplete="off" form="theForm">
+			</div> <!-- #textField -->
+				<div class="customDiv">Set Custom Link Text: <div id="divCheck" class="divCheck"></div></div>
+				<button id="submitButton" class="submitButton" form="theForm">Magic!</button>
+			</form> <!-- #theForm -->
+		</div> <!-- #formHolder -->
+		<article>
+			<h2>What is this?</h2>
+			<p>Spambots are malicious programs that crawl the web to harvest unprotected email addresses linked on blogs and other sites as regular HTML hyperlinks. You can help prevent this by scrambling your email address with randomized JavaScript variables that, upon loading the page, will appear normal to humans but look like an indescipherable mess to spambots. While nothing can guarantee that your email will never be sent spam, protecting your address with a scrambler like this can help reduce its frequency.</p>
+			<p>Upon entering your email address and optional display text, click the "Magic" button. HTML and JavaScript will be outputted. Copy and paste this code into the HTML of your personal site or any other online space that can understand JavaScript.</p>
+			<p>The Magic Spambot-Preventing Email Link Generator was inspired by <a href="http://boallen.com/spambot-resistant-email-link-generator.html" target="_blank">Bo Allen's Spambot Resistant Email Link Generator.</a></p>
+			<p>This site does not collect your email address or any other personal information.</p>
+		</article>
+		<footer>
+			<p>&copy; Copyright 2014&mdash;<a href="http://scottvrable.com?ref=magicemail" target="_blank">Scott Vrable Design + Development.</a></p>
+		</footer>
+	</div> <!-- #mainContent -->
 </div> <!-- #wrapper -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/jquery.1.11.1.min.js"><\/script>')</script>
