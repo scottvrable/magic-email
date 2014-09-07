@@ -28,6 +28,7 @@ var window$            = $(window),
     isDivChecked       = false,
     hasMaskAppeared    = false,
     hasErrorAppeared   = false,
+    isTouchEnabled     = false,
 
 // regular expression variables
     emailRegex         = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -87,6 +88,11 @@ preloadImage('img/magic-spambot-preventing-email-link-generator.jpg', animateLog
 
 // x checkbox, graphic is preloaded above
 theX$.attr({'alt': 'X', 'class': 'theX', 'id': 'theX'});
+
+// checking to see if touch-enabled
+if(Modernizr.touch) {
+	isTouchEnabled = true;
+}
 
 // === functions for immediate use
 
@@ -465,14 +471,15 @@ output$.click(function(e) {
 	e.stopPropagation();
 });
 
-// moving mask on window scroll
-window$.scroll(function() {
+// moving mask on window scroll if not touch device
+if(isTouchEnabled === false) {
+	window$.scroll(function() {
 	adjustMaskPosition();
-});
-
-window$.resize(function() {
-	adjustMaskPosition();
-});
+	});
+	window$.resize(function() {
+		adjustMaskPosition();
+	});
+}
 
 // ========================= end attaching events to inputs //
 
