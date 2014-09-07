@@ -287,6 +287,27 @@ article, footer {
 	footer {
 			border-top: solid 1px lighten($mute, 20%);
 			padding-top: 10px;
+			a:first-child {
+				display: inline-block;
+				float: left;
+				height: auto;
+				margin-right: 10px;
+				width: 40px;
+				.no-touch & {
+					opacity: 0.8;
+					@include trans(all, 0.5s);
+				}
+				.no-touch &:hover {
+					opacity: 1.0;
+				}
+				@media only screen and (min-width: 500px) {
+					float: none;
+					width: 80px;
+				}
+				img {
+					max-width: 100%;
+				}
+			}
 		}
 
 /* main styles */
