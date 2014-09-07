@@ -18,13 +18,14 @@ var window$            = $(window),
     errorEmpty$        = $('#errorEmpty'),
     errorBad$          = $('#errorBad'),
     submitButton$      = $('#submitButton'),
-    mask$              = $('#mask'),
-    output$            = $('#output'),
-    theCode$           = $('#theCode'),
+    mask$              = $('<div id="mask"></div>').addClass('mask'),
+    output$            = $('<div id="output"></div>').addClass('output'),
+    theCode$           = $('<textarea id="theCode"></textarea>').addClass('theCode').attr({'readonly': 'readonly', 'resizeable': 'resizeable'}),
     theX$              = $(preloadImage('img/check-x.png')),
 
 // normal JavaScript variables
     isDivChecked       = false,
+    hasMaskAppeared    = false,
 
 // regular expression variables
     emailRegex         = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -363,6 +364,12 @@ function pieceTogether() {
 
 function outputCode() {
 	theCode$.css('height', 350).html(strObj.outputString);
+	if(hasMaskAppeared === false) {
+		output$.append('<h2>Copy and Paste This Code Into Your HTML:</h2>', theCode$);
+mask$.append(output$);
+		$(document.body).append(mask$);
+		hasMaskAppeared = true;
+	}
 	mask$.fadeIn(400);
 	if(theCode$.prop('scrollHeight')) {
 		theCode$.css('height', theCode$.prop('scrollHeight') - 40);
