@@ -5,7 +5,8 @@ $('#noJavaScript').remove();
 // ========================= begin grabbing variables //
 
 // jQuery variables
-var heading$           = $('h1'),
+var window$            = $(window),
+    heading$           = $('h1'),
     headerHolder$      = $('#headerHolder'),
     formHolder$        = $('#formHolder'),
     inputEmail$        = $('#inputEmail'),
@@ -368,6 +369,12 @@ function outputCode() {
 	}
 }
 
+// function to change mask position based on window events
+function adjustMaskPosition() {
+	var scrollTop = window$.scrollTop();
+	output$.css({top: -scrollTop});
+}
+
 // ========================= end outputting code string //
 
 // ========================= begin attaching events to inputs // 
@@ -433,6 +440,15 @@ mask$.click(function() {
 // output events
 output$.click(function(e) {
 	e.stopPropagation();
+});
+
+// moving mask on window scroll
+window$.scroll(function() {
+	adjustMaskPosition();
+});
+
+window$.resize(function() {
+	adjustMaskPosition();
 });
 
 // ========================= end attaching events to inputs //
