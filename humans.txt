@@ -1,0 +1,17 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Scott Vrable - Designer and Developer
+
+# THANKS
+
+    Bo Allen 
+    Check out his spambot-proof email generator:
+    http://boallen.com/spambot-resistant-email-link-generator.html
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, JavaScript
+    jQuery, Modernizr, Grunt, Git

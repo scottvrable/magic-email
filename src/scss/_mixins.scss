@@ -1,0 +1,21 @@
+@mixin bRadius($radii...) {
+	-moz-border-radius: $radii;
+	-webkit-border-radius: $radii;
+	border-radius: $radii;
+}
+@mixin trans($transWhat, $time) {
+	-moz-transition: $transWhat $time;
+	-o-transition: $transWhat $time;
+	-webkit-transition: $transWhat $time;
+	transition: $transWhat $time;
+}
+@mixin bxSh($h, $v, $b, $c) {
+	-moz-box-shadow: $h $v $b $c;
+	-webkit-box-shadow: $h $v $b $c;
+	box-shadow: $h $v $b $c;
+}
+@mixin iBxSh($h, $v, $b, $c) {
+	-moz-box-shadow: inset $h $v $b $c;
+	-webkit-box-shadow: inset $h $v $b $c;
+	box-shadow: inset $h $v $b $c;
+}
