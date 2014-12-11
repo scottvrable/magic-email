@@ -22,7 +22,7 @@ var window$            = $(window),
     mask$              = $('<div id="mask"></div>').addClass('mask'),
     output$            = $('<div id="output"></div>').addClass('output'),
     theCode$           = $('<textarea id="theCode"></textarea>').addClass('theCode').attr({'readonly': 'readonly', 'resizeable': 'resizeable'}),
-    theX$              = $(preloadImage('img/check-x.png')),
+    theX$              = $(preloadImage('build/img/check-x.png')),
 
 // normal JavaScript variables
     isDivChecked       = false,
@@ -82,7 +82,7 @@ mainContent$.hide();
 textField$.hide();
 
 // preloading, then triggering animation of logo
-preloadImage('img/magic-spambot-preventing-email-link-generator.jpg', animateLogo);
+preloadImage('build/img/magic-spambot-preventing-email-link-generator.jpg', animateLogo);
 
 // x checkbox, graphic is preloaded above
 theX$.attr({'alt': 'X', 'class': 'theX', 'id': 'theX'});
