@@ -75,8 +75,7 @@ var window$            = $(window),
 // ========================= begin setting up page //
 
 // setting up start point for logo animation
-heading$.css('top', '-50%');
-headerHolder$.css('top', '50%').hide();
+headerHolder$.hide();
 textLabel$.css('opacity', 0);
 inputText$.css('opacity', 0);
 mainContent$.hide();
@@ -108,10 +107,7 @@ function preloadImage(src, func) {
 // animate logo after being preloaded
 function animateLogo() {
 	headerHolder$.fadeIn(1000, function() {
-		heading$.delay(500).animate({top: 0}, 1000);
-		headerHolder$.delay(500).animate({top: 0}, 1000, function() {
-			mainContent$.fadeIn(500);
-		});
+		mainContent$.fadeIn(500);
 	});
 }
 
