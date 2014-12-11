@@ -108,8 +108,8 @@ function preloadImage(src, func) {
 // animate logo after being preloaded
 function animateLogo() {
 	headerHolder$.fadeIn(1000, function() {
-		heading$.delay(500).animate({top: "+=50%"}, 1000);
-		headerHolder$.delay(500).animate({top: "-=50%"}, 1000, function() {
+		heading$.delay(500).animate({top: 0}, 1000);
+		headerHolder$.delay(500).animate({top: 0}, 1000, function() {
 			mainContent$.fadeIn(500);
 		});
 	});
