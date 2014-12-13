@@ -42,6 +42,8 @@ html, body {
 		.mainContent {
 			display: none;
 		}
+	}
+	.headerHolder, h1 {
 		@media only screen and (max-width: 449px) {
 			padding-top: 80%;
 			width: 80%;
