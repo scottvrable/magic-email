@@ -19,14 +19,14 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {
-          'build/css/main.min.css': 'src/scss/main.scss'
+          'css/main.min.css': 'src/scss/main.scss'
         }
       }
     },
     uglify: {
       my_target: {
         files: {
-          'build/js/main.min.js': ['src/js/plugins.js', 'src/js/main.js']
+          'js/main.min.js': ['src/js/plugins.js', 'src/js/main.js']
         }
       }
     },
