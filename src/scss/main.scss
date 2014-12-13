@@ -35,11 +35,13 @@ html, body {
 	max-width: 450px;
 	position: relative;
 	.headerHolder {
+		display: none;
 		height: 0;
 		margin: 0 auto;
 		padding-top: 100%;
-		position: relative;
-		top: 0;
+		.mainContent {
+			display: none;
+		}
 		@media only screen and (max-width: 449px) {
 			padding-top: 80%;
 			width: 80%;
